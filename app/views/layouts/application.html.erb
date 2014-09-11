@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Izibalo</title>
+  <title><%= content_for?(:title) ? "Izibalo - #{content_for(:title)}" : "Izibalo" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
-
-<%= yield %>
-
+	<%= render 'layouts/header' %>
+	<div class="cointainer-fluid">
+		<div id="container">
+		<%= yield %>
+		</div>
+	</div>
+	<%= render 'layouts/footer' %>
+	<%= debug(params) if Rails.env.development? %>
 </body>
 </html>

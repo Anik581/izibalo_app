@@ -1,0 +1,26 @@
+<% title("Create task") %>
+<div class="form-horizontal" role="form">
+	<h1>Create your task</h1>
+	<%= form_for(@task) do |f| %>
+
+	<div class="form-group form" >
+		<%= f.label :name, "Task name" %>
+		<%= f.text_field :name, class: "form-control" %>
+	</div>
+
+	<div class="form-group form" >
+		<%= f.label :timeout %>
+		<%= f.date_select :timeout, default: 1.years.from_now, start_year: Time.now.year, html: {style: "color: black"}, class: "form-control" %>
+	</div>
+
+	<div class="form-group form" >
+	<%= f.label :max_work_time, "10", id: "digit" %>
+	<%= f.range_field :max_work_time, in: 1..20, class: "" %>
+
+	</div>
+
+	<div class="form-group form center">
+		<%= f.submit "Create", class: "btn btn-lg btn-success" %>
+	<% end %>
+	</div>
+</div>
