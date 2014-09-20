@@ -1,0 +1,9 @@
+<% if Rails.env.development? %>
+<div id="login">
+	<% if logged? %>
+		<%= ">>#{current_user.name}<<" %>
+	<% else %>
+		<%= ">>0<<" %>
+	<% end %>
+</div>
+<% end %>

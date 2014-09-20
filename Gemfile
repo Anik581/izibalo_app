@@ -4,13 +4,14 @@ gem 'rails', '4.1.0'
 gem 'turbolinks', '2.2.2'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.1.1'
+gem 'jquery-turbolinks', '2.1.0'
 gem 'jbuilder', '2.0'
 gem 'uglifier', '2.5.3'
 gem 'bcrypt-ruby', '3.1.5'
 gem 'therubyracer', '0.12.1'
-gem 'bootstrap-sass', '3.2.0'
 gem 'sass-rails', '>= 3.2'
-gem 'sprockets'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
 
 
 group :development, :test do

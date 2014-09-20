@@ -1,5 +1,6 @@
-<footer>
-	<div>
-
+<footer class="footer-style">
+	<div class="container">
+		<%= render 'layouts/session_view' %>
+		<%= debug(params) if Rails.env.development? %>
 	</div>
 </footer>
