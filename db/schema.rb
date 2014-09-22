@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20140903210046) do
 
   create_table "days", force: true do |t|
     t.integer  "task_id"
+    t.date     "date"
     t.time     "work_time"
     t.datetime "created_at"
     t.datetime "updated_at"

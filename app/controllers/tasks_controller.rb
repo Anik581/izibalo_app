@@ -7,7 +7,10 @@ class TasksController < ApplicationController
 
 	def create
 	  if current_user.tasks.create(task_params)
-		redirect_to user_path(current_user)
+	  	(current_user.tasks.last.created_at.to_date..current_user.tasks.last.timeout).each do |day|
+	  		current_user.tasks.last.days.create(date: day)
+	  	end
+			redirect_to user_path(current_user)
 		else
 			render 'tasks'
 		end

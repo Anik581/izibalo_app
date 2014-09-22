@@ -125,3 +125,27 @@ pre {
 	width: 30%;
 	color: white;
 }
+
+#table_of_days {
+  height: 350px;
+}
+
+#week {
+  float: left;
+  margin: 0 1px;
+}
+
+.day {
+  height: 25px;
+  width: 25px;
+  margin: 1px 0;
+  background-color: white;
+  border: 1px solid green;
+}
+
+.invisible_day {
+  height: 25px;
+  width: 25px;
+  margin: 1px 0;
+  background: transparent;
+}
