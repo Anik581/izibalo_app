@@ -62,11 +62,11 @@ pre {
 
  #logo {
  	float: left;
- 	font-size: 4.2em;
- 	padding: 0 6%;
+ 	font-size: 3.2em;
  	text-transform: uppercase;
  	font-weight: bold;
  	text-decoration: none;
+  margin: 0 0 0 18px;
  	color: $izibalo;
  	&:hover {
  		color: #49a549;
@@ -74,14 +74,22 @@ pre {
  	}
  }
 
- .nav {
- 		float: left;
- 		margin: 25px 0;
+.navbar-toggle {
+  margin-top: 15px
+}
+
+.nav {
+  margin: 20px 0 0 0;
+}
+
+ .nav_li > a {
+  padding: 12px !important;
  }
 
- .header-style {
+ .navbar-inverse {
  	background-color: #111;
  	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 18px;
  }
 
  .footer-style {
@@ -126,26 +134,44 @@ pre {
 	color: white;
 }
 
-#table_of_days {
-  height: 350px;
+#visible_calendar {
+    height: 225px;
+    padding-left: 3px;
+}
+
+#hidden_calendar {
+  white-space: nowrap;
+  display: inline-block;
 }
 
 #week {
-  float: left;
-  margin: 0 1px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0px 0 -3px;
+  // padding: 0 6px 0 0;
 }
 
 .day {
-  height: 25px;
-  width: 25px;
+  height: 28px;
+  width: 28px;
   margin: 1px 0;
   background-color: white;
-  border: 1px solid green;
+}
+
+.target {
+  height: 28px;
+  width: 28px;
+  margin: 1px 0;
+  background-color: green;
 }
 
 .invisible_day {
-  height: 25px;
-  width: 25px;
+  height: 28px;
+  width: 28px;
   margin: 1px 0;
   background: transparent;
+}
+
+#ascrail2000-hr {
+  border-radius: 5px;
 }

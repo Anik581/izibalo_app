@@ -12,6 +12,7 @@ gem 'therubyracer', '0.12.1'
 gem 'sass-rails', '>= 3.2'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+gem 'nicescroll-rails'
 
 
 group :development, :test do

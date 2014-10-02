@@ -1,11 +1,12 @@
 <% title(current_user.name.capitalize) %>
 <div>
-	<h1><%= current_user.name %></h1>
+	<h1><%= current_user.name %></h1>		
 	<h2><%= current_user.tasks.count %></h2>
 
 
+<div id="visible_calendar">
 
-	<div id="table_of_days">
+	<div id="hidden_calendar">
 
 		<div id="week">
 			<% current_user.tasks.last.days.first.date.wday.times do %>
@@ -17,13 +18,19 @@
 		<% if day.date.sunday? %>
 		<div id="week">
 		<% end %>
-			<div class="day">
-			<%= day.date.strftime("%d") %>
+
+			<div class="day<%= " target" if (day.date.strftime("%d-%m-%Y") == "17-08-2015") %>" >
+			
 			</div>
+
 		<% if day.date.saturday? || (day == current_user.tasks.last.days.last) %>
 		</div>
 		<% end %>
 	<% end %>
 	</div>
+
+	</div>
+
+
 
 </div>

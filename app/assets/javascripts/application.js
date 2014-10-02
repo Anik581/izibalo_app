@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require bootstrap
+//= require jquery.nicescroll
 //= require_tree .
