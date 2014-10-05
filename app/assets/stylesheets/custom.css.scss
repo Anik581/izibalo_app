@@ -134,9 +134,15 @@ pre {
 	color: white;
 }
 
+.frame_of_calendar {
+  height: 270px;
+}
+
 #visible_calendar {
-    height: 225px;
-    padding-left: 3px;
+    height: 270px;
+    padding-left: 0px;
+    margin-left: 28px;
+    margin-right: 28px;
 }
 
 #hidden_calendar {
@@ -147,31 +153,63 @@ pre {
 #week {
   display: inline-block;
   vertical-align: top;
-  margin: 0 0px 0 -3px;
-  // padding: 0 6px 0 0;
+  margin: 0 0 0 0px;
 }
 
 .day {
   height: 28px;
   width: 28px;
-  margin: 1px 0;
+  margin-top: 4px;
   background-color: white;
 }
 
 .target {
   height: 28px;
   width: 28px;
-  margin: 1px 0;
+  margin: 4px 0;
   background-color: green;
 }
 
 .invisible_day {
   height: 28px;
   width: 28px;
-  margin: 1px 0;
+  margin: 4px 0;
   background: transparent;
 }
 
-#ascrail2000-hr {
+.nicescroll-rails {
   border-radius: 5px;
+  margin: 0;
+
+}
+
+
+#month {
+    height: 28px;
+    background: transparent;
+    margin: 0 0 0 0px;
+}
+
+.month_name {
+  float: left;
+  width: 28px;
+  margin-right: 4px;
+  font-size: 1.3em;
+  color: white;
+}
+
+.day_name {
+  position: fixed;
+  height: 252px;
+  width: 28px;
+  padding: 28px 0 0;
+  margin: 0 0 0 -28px;
+  z-index: 999;
+  font-size: 1.3em;
+  color: white;
+  background-color: #2e3137;
+  p {
+    height: 28px;
+    margin: 36px 0 0;
+  }
 }

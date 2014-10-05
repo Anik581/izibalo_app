@@ -2,35 +2,55 @@
 <div>
 	<h1><%= current_user.name %></h1>		
 	<h2><%= current_user.tasks.count %></h2>
+	<h2><%= current_user.tasks.last.days.last.date.cweek %></h2>
 
 
-<div id="visible_calendar">
 
-	<div id="hidden_calendar">
+	
 
-		<div id="week">
-			<% current_user.tasks.last.days.first.date.wday.times do %>
-			<div class="invisible_day"></div>
-			<% end %>
+	<div id="visible_calendar">
+		<div class="day_name"><p>M</p><p>W</p><p>F</p></div>
+		<div id="hidden_calendar">
 
-
-	<% current_user.tasks.last.days.each do |day| %>
-		<% if day.date.sunday? %>
-		<div id="week">
-		<% end %>
-
-			<div class="day<%= " target" if (day.date.strftime("%d-%m-%Y") == "17-08-2015") %>" >
-			
+			<div id="month">
+				<% margin_month_name = 0 %>
+				<% current_week = 0 %>
+				<% current_user.tasks.last.days.each do |day|  %>
+					<% if day.date.saturday? && (day.date.saturday? != (day.date.strftime("%d") == "10")) && (day.date.saturday? != (day.date.strftime("%d") == "16")) && (current_week != day.date.cweek) %>
+						<% margin_month_name += 32 %>
+					<% end %>
+					<% if day.date.strftime("%d") == "10" && 8 < (current_user.tasks.last.days.last.date - day.date) %>
+						<% current_week = day.date.cweek %>
+						<div class="month_name" style="margin-left: <%= margin_month_name %>px" >
+							<%= day.date.strftime("%b") %>
+							<% margin_month_name = 0 %>
+						</div>
+					<% end %>
+				<% end %>
 			</div>
 
-		<% if day.date.saturday? || (day == current_user.tasks.last.days.last) %>
-		</div>
+			<% if !current_user.tasks.last.days.first.date.sunday? %>
+			<div id="week">
+				<% current_user.tasks.last.days.first.date.wday.times do %>
+					<div class="invisible_day"></div>
+				<% end %>
+			<% end %>
+
+			<% current_user.tasks.last.days.each do |day| %>
+				<% if day.date.sunday? %>
+			<div id="week">
+				<% end %>
+
+				<div class="day<%= " target" if (day.date.strftime("%d-%m-%Y") == "04-09-2015") %>" >
+
+				</div>
+
+			<% if day.date.saturday? || (day == current_user.tasks.last.days.last) %>
+			</div>
+			<% end %>
 		<% end %>
-	<% end %>
-	</div>
+		</div>
 
 	</div>
-
-
 
 </div>
