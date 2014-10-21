@@ -1,16 +1,15 @@
-<% title(current_user.name.capitalize) %>
+<% title("Task") %>
 	
 
-	<div>
-		<h1><%= current_user.name %></h1>		
-		<h2><%= current_user.tasks.count %></h2>
-			<% @tasks.each do |task| %>
-		<h2><%=  task.name %></h2>
-			<% end %>
-	</div>
+
+		<h1><%= "#{current_user.name} - #{@task.name}" %></h1>
+
 
 
 <div>
+
+
+
 
 	<div class="calendar_frame">
 		<div class="day_name"><p>M</p><p>W</p><p>F</p></div>
@@ -21,11 +20,11 @@
 				<div id="month">
 					<% margin_month_name = 0 %>
 					<% current_week = 0 %>
-					<% current_user.tasks.last.days.each do |day|  %>
+					<% @task.days.each do |day|  %>
 						<% if day.date.saturday? && (day.date.saturday? != (day.date.strftime("%d") == "10")) && (day.date.saturday? != (day.date.strftime("%d") == "16")) && (current_week != day.date.cweek) %>
 							<% margin_month_name += 32 %>
 						<% end %>
-						<% if day.date.strftime("%d") == "10" && 8 < (current_user.tasks.last.days.last.date - day.date) %>
+						<% if day.date.strftime("%d") == "10" && 8 < (@task.days.last.date - day.date) %>
 							<% current_week = day.date.cweek %>
 							<div class="month_name" style="margin-left: <%= margin_month_name %>px" >
 								<%= day.date.strftime("%b") %>
@@ -35,30 +34,34 @@
 					<% end %>
 				</div>
 
-				<% if !current_user.tasks.last.days.first.date.sunday? %>
+				<% if !@task.days.first.date.sunday? %>
 				<div id="week">
-					<% current_user.tasks.last.days.first.date.wday.times do %>
+					<% @task.days.first.date.wday.times do %>
 						<div class="invisible_day"></div>
 					<% end %>
 				<% end %>
 
-				<% current_user.tasks.last.days.each do |day| %>
+				<% @task.days.each do |day| %>
 					<% if day.date.sunday? %>
-				<div id="week">
+						<div id="week">
 					<% end %>
 
-					<div class="day<%= " target" if (day.date.strftime("%d-%m-%Y") == "04-09-2014") %>" >
-						<%= day.date.strftime("%d") %>
-					</div>
+					<%= div_day(day, @task) %>
 
-				<% if day.date.saturday? || (day == current_user.tasks.last.days.last) %>
-				</div>
+					<% if day.date.saturday? || (day == @task.days.last) %>
+						</div>
+					<% end %>
 				<% end %>
-			<% end %>
 			</div>
 		</div>
 	</div>
 
-	<%= render 'shared/content_menu.html' %>
 
+
+
+	<%= render partial: 'shared/content_menu_links', layout: 'shared/content_menu' %>
+		
 </div>
+
+
+<!-- (day.date.strftime("%d-%m-%Y") == "04-09-2015")      -->

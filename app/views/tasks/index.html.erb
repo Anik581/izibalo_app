@@ -1,0 +1,19 @@
+<% title("Tasks") %>
+	
+
+
+	<div>
+		<table class="table table-hover table_tasks noselect">
+			<% @tasks.each do |task| %>
+				<tr onclick=location.href='<%= task_path(task.id) %>'>
+					<td class="task_name"><%= task.name %></td>
+					<td><%= "#{task.days.first.date.strftime("%d-%m-%Y")} - #{task.days.last.date.strftime("%d-%m-%Y")}" %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+
+	<%= render 'shared/content_menu' %>
+
+
+		

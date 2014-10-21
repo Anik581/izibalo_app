@@ -101,10 +101,65 @@ pre {
  	border-top: 1px solid rgba(255, 255, 255, 0.3);
  }
 
+//..................................................................bootstrap
+
  .btn-nav {
  	background: #333;
  	border: 1px solid rgba(20, 20, 20, 0.5);
  }
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #777777;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: transparent;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #888888;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #666;
+}
+
+.navbar-collapse {
+    box-shadow: none;
+}
+
+.dropdown-menu {
+  background-color: #ffffff !important;
+}
+
+tr {
+  font-size: 1.5em;
+  color: white;
+}
+
+tr:hover td{
+  background-color: #3e3f44;
+}
+
+//..................................................................bootstrap
+
 
  #login {
  	height: 100%;
@@ -163,11 +218,24 @@ pre {
   background-color: white;
 }
 
+.editable_day {
+  &:hover{
+  -webkit-box-shadow: inset 0px 0px 30px 0px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow:    inset 0px 0px 30px 0px rgba(50, 50, 50, 0.3);
+  box-shadow:         inset 0px 0px 30px 0px rgba(50, 50, 50, 0.3);
+  }
+}
+
 .target {
   height: 28px;
   width: 28px;
   margin: 4px 0;
-  background-color: green;
+  background-color: #d9534f;
+  cursor: pointer;
+  // border: solid 4px $izibalo;
+  // &:hover {
+  //   background-color: #c9302c;
+  // }
 }
 
 .invisible_day {
@@ -199,17 +267,47 @@ pre {
 }
 
 .day_name {
-  position: fixed;
+  position: absolute;
   height: 252px;
   width: 28px;
   padding: 28px 0 0;
-  margin: 0 0 0 -28px;
   z-index: 999;
   font-size: 1.3em;
   color: white;
-  background-color: #2e3137;
+  background: #2e3137;
   p {
     height: 28px;
     margin: 36px 0 0;
+    text-align: center;
   }
+}
+
+.calendar_frame {
+  position: relative;
+  height: 270px;
+}
+
+.table_tasks {
+
+  tr {
+    cursor: pointer;
+    td {
+      font-size: 0.7em;
+      vertical-align: middle !important;
+    }
+    .task_name {
+        font-size: 1em;
+      }
+  }
+
+
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

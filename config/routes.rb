@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  resources :tasks, only: [:new, :create, :destroy]
+  resources :tasks do
+    resources :days
+  end
 
-  resources :days, only: [:create, :destroy]
+  # resources :days
 
   root 'sessions#new', as: 'login'
   match '/logout', to: 'sessions#destroy', via: 'delete'

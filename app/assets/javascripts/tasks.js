@@ -28,7 +28,7 @@ jQuery(function(){
 	    cursorborderradius: "5px",
 			autohidemode: false
 		}).doScrollLeft(	validate_move	 );
-	});
+	})
 
 });
 
