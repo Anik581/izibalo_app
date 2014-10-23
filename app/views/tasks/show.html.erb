@@ -9,53 +9,50 @@
 <div>
 
 
-
-
 	<div class="calendar_frame">
-		<div class="day_name"><p>M</p><p>W</p><p>F</p></div>
-		<div id="visible_calendar">
-			
-			<div id="hidden_calendar">
+			<div class="day_name"><p>M</p><p>W</p><p>F</p></div>
+			<div id="visible_calendar">
+				
+				<div id="hidden_calendar">
 
-				<div id="month">
-					<% margin_month_name = 0 %>
-					<% current_week = 0 %>
-					<% @task.days.each do |day|  %>
-						<% if day.date.saturday? && (day.date.saturday? != (day.date.strftime("%d") == "10")) && (day.date.saturday? != (day.date.strftime("%d") == "16")) && (current_week != day.date.cweek) %>
-							<% margin_month_name += 32 %>
+					<div id="month">
+						<% margin_month_name = 0 %>
+						<% current_week = 0 %>
+						<% @task.days.each do |day|  %>
+							<% if day.date.saturday? && (day.date.saturday? != (day.date.strftime("%d") == "10")) && (day.date.saturday? != (day.date.strftime("%d") == "16")) && (current_week != day.date.cweek) %>
+								<% margin_month_name += 32 %>
+							<% end %>
+							<% if day.date.strftime("%d") == "10" && 8 < (@task.days.last.date - day.date) %>
+								<% current_week = day.date.cweek %>
+								<div class="month_name" style="margin-left: <%= margin_month_name %>px" >
+									<%= day.date.strftime("%b") %>
+									<% margin_month_name = 0 %>
+								</div>
+							<% end %>
 						<% end %>
-						<% if day.date.strftime("%d") == "10" && 8 < (@task.days.last.date - day.date) %>
-							<% current_week = day.date.cweek %>
-							<div class="month_name" style="margin-left: <%= margin_month_name %>px" >
-								<%= day.date.strftime("%b") %>
-								<% margin_month_name = 0 %>
+					</div>
+
+					<% if !@task.days.first.date.sunday? %>
+					<div id="week">
+						<% @task.days.first.date.wday.times do %>
+							<div class="invisible_day"></div>
+						<% end %>
+					<% end %>
+
+					<% @task.days.each do |day| %>
+						<% if day.date.sunday? %>
+							<div id="week">
+						<% end %>
+
+						<%= div_day(day, @task) %>
+
+						<% if day.date.saturday? || (day == @task.days.last) %>
 							</div>
 						<% end %>
 					<% end %>
 				</div>
-
-				<% if !@task.days.first.date.sunday? %>
-				<div id="week">
-					<% @task.days.first.date.wday.times do %>
-						<div class="invisible_day"></div>
-					<% end %>
-				<% end %>
-
-				<% @task.days.each do |day| %>
-					<% if day.date.sunday? %>
-						<div id="week">
-					<% end %>
-
-					<%= div_day(day, @task) %>
-
-					<% if day.date.saturday? || (day == @task.days.last) %>
-						</div>
-					<% end %>
-				<% end %>
 			</div>
 		</div>
-	</div>
-
 
 
 

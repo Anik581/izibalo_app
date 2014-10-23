@@ -3,6 +3,9 @@
 
 
 	<div>
+
+
+
 		<table class="table table-hover table_tasks noselect">
 			<% @tasks.each do |task| %>
 				<tr onclick=location.href='<%= task_path(task.id) %>'>
@@ -11,9 +14,29 @@
 				</tr>
 			<% end %>
 		</table>
-	</div>
 
-	<%= render 'shared/content_menu' %>
+		<div id="example"></div>
 
+		<%= timeline tasks_timeline(@tasks), 
+				library: {backgroundColor: "#43464B",
+									enableInteractivity: false,
+									timeline: { rowLabelStyle: {color: '#fff', fontSize: '15'},
+									singleColor: '#3a963a'}} %>
+
+		<%= render 'shared/content_menu' %>
+
+
+		<text text-anchor="middle">marjhjhkjhkjhkjhkjhkjhkjhkjh</text>
 
 		
+
+
+	</div>
+
+<!-- library: {backgroundColor: "#2e3137", showRowLabels: false} -->
+
+<!-- timeline: { rowLabelStyle: {fontName: 'Helvetica', fontSize: 24, color: '#603913' } -->
+
+<!-- hAxis.baselineColor -->
+
+<!-- hAxis.textStyle -->

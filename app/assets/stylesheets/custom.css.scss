@@ -288,7 +288,6 @@ tr:hover td{
 }
 
 .table_tasks {
-
   tr {
     cursor: pointer;
     td {
@@ -299,8 +298,6 @@ tr:hover td{
         font-size: 1em;
       }
   }
-
-
 }
 
 .noselect {
@@ -310,4 +307,8 @@ tr:hover td{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+text[text-anchor="middle"]{
+  fill: currentColor;
 }

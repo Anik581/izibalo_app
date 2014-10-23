@@ -13,6 +13,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'nicescroll-rails'
+gem 'chartkick', '1.3.2'
 
 
 group :development, :test do

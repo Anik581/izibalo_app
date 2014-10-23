@@ -17,4 +17,8 @@
 //= require jquery.turbolinks
 //= require bootstrap
 //= require jquery.nicescroll
+//= require jsapi
+//= require chartkick
 //= require_tree .
+
+
