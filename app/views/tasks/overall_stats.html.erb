@@ -1,4 +1,4 @@
-<% title("Task") %>
+<% title("Overall Stats - #{@task.name}") %>
 	
 
 
@@ -54,14 +54,16 @@
 			</div>
 		</div>
 
-
-
 	<%= render partial: 'shared/content_menu_links', layout: 'shared/content_menu' %>
+
+	<div id="active_days_area_chart" style="display: none"><%= @active_days_area_chart_overall.to_json %></div>
+	<div id="hours_vaxis" style="display: none"><%= hours_vaxis(@task).to_json %></div>
+	<div id="area_chart_overall"></div>
+
+	<div id="task_progress_pie_chart" style="display: none"><%= @task_progress.to_json %></div><div id="pie_chart_task_progress"></div>
+
+	<div id="time_details_pie_chart" style="display: none"><%= @time_details.to_json %></div>
+	<div id="slices_colors" style="display: none"><%= slices_colors(markers_array(@active_days), @task.max_work_time).to_json %></div>
+	<div id="pie_chart_time_details"></div>
 		
 </div>
-
-
-<!-- (day.date.strftime("%d-%m-%Y") == "04-09-2015")      -->
-
-
-

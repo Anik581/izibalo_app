@@ -5,13 +5,18 @@ Rails.application.routes.draw do
   resources :sessions
 
   resources :tasks do
+    member do
+      get 'overall_stats'
+      get 'monthly_stats'
+      get 'weekly_stats'
+    end
     resources :days
   end
 
   # resources :days
 
-  root 'sessions#new', as: 'login'
-  match '/logout', to: 'sessions#destroy', via: 'delete'
+  root 'sessions#new',    as: 'login'
+  match '/logout',        to: 'sessions#destroy',     via: 'delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

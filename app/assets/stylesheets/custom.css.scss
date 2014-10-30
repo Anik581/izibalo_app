@@ -232,10 +232,6 @@ tr:hover td{
   margin: 4px 0;
   background-color: #d9534f;
   cursor: pointer;
-  // border: solid 4px $izibalo;
-  // &:hover {
-  //   background-color: #c9302c;
-  // }
 }
 
 .invisible_day {
@@ -250,7 +246,6 @@ tr:hover td{
   margin: 0;
 
 }
-
 
 #month {
     height: 28px;
@@ -310,5 +305,5 @@ tr:hover td{
 }
 
 text[text-anchor="middle"]{
-  fill: currentColor;
+  fill: #B2B2B2;
 }
