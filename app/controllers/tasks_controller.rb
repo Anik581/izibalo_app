@@ -2,7 +2,6 @@ class TasksController < ApplicationController
 
 	def new
 		@task = Task.new
-		#@day = Day.new
 	end
 
 	def index
@@ -17,19 +16,18 @@ class TasksController < ApplicationController
 	def overall_stats
 		@task = current_user.tasks.find(params[:id])
 		@tasks = current_user.tasks.all
-
-		end_range = (@task.days.last.date > Time.now.to_date) ? Time.now.to_date : @tasks.days.last.date
-		count_active_days = (@task.days.first.date..@task.days.find_by(date: end_range).date).count 
-		@active_days = @task.days.first(count_active_days)
-		@active_days_area_chart_overall = area_chart_overall(@active_days)
-
-		@task_progress = pie_chart_overall(@active_days, @task)
-
-		@time_details = pie_chart_time_details(@active_days)
+		@active_days = @task.active_days(@task.days.all)
 	end
 
 	def month_stats
-
+		@task = current_user.tasks.find(params[:id])
+		@tasks = current_user.tasks.all
+  	@month = params[:month_date].nil? ? @task.current_month : @task.selected_month(params[:month_date])
+  	@active_days_of_month = @task.active_days(@month)
+  	respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 
 	def week_stats

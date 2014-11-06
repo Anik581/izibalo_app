@@ -1,0 +1,25 @@
+<div class="calendar_frame">
+	<div class="day_name"><p>M</p><p>W</p><p>F</p></div>
+	<div id="visible_calendar">
+		<div id="hidden_calendar">
+			<div id="month">
+				<% calendar_month_name(@task) %>
+			</div>
+			<% if !@task.days.first.date.sunday? %>	
+			<div id="week">
+				<% @task.days.first.date.wday.times do %>
+					<div class="invisible_day"></div>
+				<% end %>
+			<% end %>
+			<% @task.days.each do |day| %>
+				<% if day.date.sunday? %>
+					<div id="week">
+				<% end %>
+				<%= div_day(day, @task) %>
+				<% if day.date.saturday? || (day == @task.days.last) %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

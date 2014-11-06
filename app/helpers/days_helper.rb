@@ -3,7 +3,6 @@ module DaysHelper
 	def div_day(day, task)
 	  if !day.work_time.nil? && last_thirty_days?(day)
 	  	content_tag :div, class: "#{day_class(day, task)} editable_day", onclick: "location.href =  '#{edit_task_day_path(task.id, day.id)}'", style: "background-color:#{day_color(day, task)}" do
-	  		# day.work_time.strftime('%k') if day.work_time != nil
 	    end
 		elsif last_thirty_days?(day)
 			content_tag :div, class: "#{day_class(day, task)} editable_day", onclick: "location.href =  '#{edit_task_day_path(task.id, day.id)}'" do
@@ -38,15 +37,5 @@ module DaysHelper
 		index = (wt > mwt) ? 23 : (wt.to_f / mwt.to_f * 23).to_i
 		activity_colors(index)
 	end
-
-	# def day_color(day, task)
-	# 	mwt = (task.max_work_time.strftime('%H').to_i*60)*60 + (task.max_work_time.strftime('%M').to_i*60) + task.max_work_time.strftime('%S').to_i
-	# 	wt = (day.work_time.strftime('%H').to_i*60)*60 + (day.work_time.strftime('%M').to_i*60) + day.work_time.strftime('%S').to_i
-	# 	colors = ["#FFFFFF", "#CCFFCC", "#99FF99", "#66FF66", "#33FF33", "#00FF00", "#00F500", "#00EB00",
-	# 						"#00E000", "#00D600", "#00CC00", "#00C200", "#00B800", "#00AD00", "#00A300", "#009900",
-	# 						"#008F00", "#008500", "#007A00", "#007000", "#006600", "#005C00", "#005200", "#004700"] 
-	# 	index = (wt > mwt) ? 23 : (wt.to_f / mwt.to_f * 23).to_i
-	# 	colors[index]
-	# end
 
 end

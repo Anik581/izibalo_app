@@ -1,0 +1,17 @@
+	<div id="active_days_area_chart" style="display: none"><%= area_chart(part_days).to_json %></div>
+	<div id="area_chart_title" style="display: none"><%= "Activity history in #{part_days.first.date.strftime('%B')}".to_json %></div>
+	<div id="hours_vaxis" style="display: none"><%= hours_vaxis(@task).to_json %></div>
+	<div id="area_chart_overall"></div>
+
+<div class="row">
+	<div class="col-xs-12 col-sm-6">
+		<div id="task_progress_pie_chart" style="display: none"><%= pie_chart_task_progress(part_active_days, remaining_time).to_json %></div>
+		<div id="pie_chart_task_progress"></div>
+	</div>
+
+	<div class="col-xs-12 col-sm-6">
+		<div id="time_details_pie_chart" style="display: none"><%= pie_chart_time_details(part_active_days).to_json %></div>
+		<div id="slices_colors" style="display: none"><%= slices_colors(markers_array(part_days), @task.max_work_time).to_json %></div>
+		<div id="pie_chart_time_details"></div>
+	</div>
+</div>

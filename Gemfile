@@ -16,6 +16,7 @@ gem 'nicescroll-rails'
 gem 'chartkick', '1.3.2'
 
 
+
 group :development, :test do
 	gem 'mysql2', '0.3.16'
 	gem 'better_errors', '>= 1.1.0'

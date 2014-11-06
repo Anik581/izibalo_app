@@ -1,5 +1,6 @@
-$izibalo: #3a963a;
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 
+$izibalo: #3a963a;
 
 html {
   min-height: 100%;
@@ -101,7 +102,7 @@ pre {
  	border-top: 1px solid rgba(255, 255, 255, 0.3);
  }
 
-//..................................................................bootstrap
+//..................................................................bootstrap customize
 
  .btn-nav {
  	background: #333;
@@ -158,7 +159,7 @@ tr:hover td{
   background-color: #3e3f44;
 }
 
-//..................................................................bootstrap
+//..................................................................
 
 
  #login {
@@ -174,6 +175,10 @@ tr:hover td{
  	margin: 15px auto;
  	text-align: center;
  }
+
+ .top_buffer { margin-top:20px; }
+
+ .left_buffer { margin-left: 125px; }
 
  #container{
 	margin: 0 auto;
@@ -307,3 +312,5 @@ tr:hover td{
 text[text-anchor="middle"]{
   fill: #B2B2B2;
 }
+
+

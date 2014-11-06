@@ -1,6 +1,21 @@
 module TasksHelper
 	include ActionView::Helpers::TextHelper
 
+	def calendar_month_name(task)
+		margin_month_name = 0
+		current_week = 0
+		task.days.map do |day|
+			if day.date.saturday? && (day.date.saturday? != (day.date.strftime("%d") == "10")) && (day.date.saturday? != (day.date.strftime("%d") == "16")) && (current_week != day.date.cweek)
+				margin_month_name += 32
+			end
+			if day.date.strftime("%d") == "10" && 8 < (task.days.last.date - day.date)
+				current_week = day.date.cweek
+				concat(content_tag :div, day.date.strftime("%b"), class: "month_name", style: "margin-left:#{margin_month_name}px")
+				margin_month_name = 0
+			end
+		end
+	end
+
 	def tasks_timeline(tasks)
 		array = []
 		@tasks.each do |task|
@@ -29,7 +44,7 @@ module TasksHelper
 		day.work_time.nil? ? 0 : (day.work_time.strftime('%H').to_i*60) + day.work_time.strftime('%M').to_i
 	end
 
-	def area_chart_overall(active_days)
+	def area_chart(active_days)
 		array = [['', 'Minutes']]
 		active_days.each do |day|
 			array.push(["#{day.date.strftime('%m-%d')}",time_work_in_minutes(day)])
@@ -37,9 +52,10 @@ module TasksHelper
 		array
 	end
 
-	def pie_chart_overall(active_days, task)
-		array = [['Time', 'Days']]
-		array.push(['Activity time',(active_days.count)],['Remaining time',(task.days.count - active_days.count)])
+	def pie_chart_task_progress(active_days, task)
+		array = [['Time name', 'Time']]
+		activity_time = (task.first.date > Time.now.to_date) ? 0 : active_days.count
+		array.push(['Activity time',(activity_time)],['Remaining time',(task.count - activity_time)])
 	end
 
 	def slices_colors(markers_array, max_work_time)
@@ -64,14 +80,8 @@ module TasksHelper
 	end
 
 	def pie_chart_time_details(active_days)
-  	array = [['Task', 'Hours per Day']]
-  	names = ['wasted days', 'minutes', ' hour']
-  	# names = ['wasted day', 'minutes', 'hours']
-
-  	# pluralize(current_user.microposts.count, "micropost")
-  	# pluralize(marker - 1, names[2])
-  	# ["#{marker - 1}"+names[2]
-
+  	array = [['Time name', 'Time']]
+  	names = ['Empty days', 'Minutes', ' hour']
   	markers_array = markers_array(active_days)
   	markers_array.each do |marker|
   		marker < 2 ? array.push([names[marker], 0]) : array.push([pluralize(marker - 1, names[2]), 0])
@@ -92,4 +102,5 @@ module TasksHelper
 	    end
   	array
 	end
+
 end

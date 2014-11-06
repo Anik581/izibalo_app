@@ -1,22 +1,18 @@
 <% title("Tasks") %>
 
-<div>
+<table class="table table-hover table_tasks noselect">
+	<% @tasks.each do |task| %>
+		<tr onclick=location.href='<%= task_path(task.id) %>'>
+			<td class="task_name"><%= task.name.capitalize %></td>
+			<td><%= "#{task.days.first.date.strftime("%d-%m-%Y")} - #{task.days.last.date.strftime("%d-%m-%Y")}" %></td>
+		</tr>
+	<% end %>
+</table>
 
-	<table class="table table-hover table_tasks noselect">
-		<% @tasks.each do |task| %>
-			<tr onclick=location.href='<%= task_path(task.id) %>'>
-				<td class="task_name"><%= task.name %></td>
-				<td><%= "#{task.days.first.date.strftime("%d-%m-%Y")} - #{task.days.last.date.strftime("%d-%m-%Y")}" %></td>
-			</tr>
-		<% end %>
-	</table>
+<%= timeline tasks_timeline(@tasks), 
+		library: {backgroundColor: "#43464B",
+							enableInteractivity: false,
+							timeline: { rowLabelStyle: {color: '#fff', fontSize: '15'},
+							singleColor: '#3a963a'}} %>
 
-	<%= timeline tasks_timeline(@tasks), 
-			library: {backgroundColor: "#43464B",
-								enableInteractivity: false,
-								timeline: { rowLabelStyle: {color: '#fff', fontSize: '15'},
-								singleColor: '#3a963a'}} %>
-
-	<%= render 'shared/content_menu' %>
-
-</div>
+<%= render 'shared/content_menu' %>

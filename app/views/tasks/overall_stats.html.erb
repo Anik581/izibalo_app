@@ -1,69 +1,9 @@
-<% title("Overall Stats - #{@task.name}") %>
+<% title("Overall Stats - #{@task.name.capitalize}") %>
 	
+<h2><%= "#{@task.name.capitalize}" %></h2>
 
+<%= render 'calendar' %>
 
-		<h1><%= "#{current_user.name} - #{@task.name}" %></h1>
+<%= render partial: 'shared/content_menu_links', layout: 'shared/content_menu' %>
 
-
-
-<div>
-
-
-	<div class="calendar_frame">
-			<div class="day_name"><p>M</p><p>W</p><p>F</p></div>
-			<div id="visible_calendar">
-				
-				<div id="hidden_calendar">
-
-					<div id="month">
-						<% margin_month_name = 0 %>
-						<% current_week = 0 %>
-						<% @task.days.each do |day|  %>
-							<% if day.date.saturday? && (day.date.saturday? != (day.date.strftime("%d") == "10")) && (day.date.saturday? != (day.date.strftime("%d") == "16")) && (current_week != day.date.cweek) %>
-								<% margin_month_name += 32 %>
-							<% end %>
-							<% if day.date.strftime("%d") == "10" && 8 < (@task.days.last.date - day.date) %>
-								<% current_week = day.date.cweek %>
-								<div class="month_name" style="margin-left: <%= margin_month_name %>px" >
-									<%= day.date.strftime("%b") %>
-									<% margin_month_name = 0 %>
-								</div>
-							<% end %>
-						<% end %>
-					</div>
-
-					<% if !@task.days.first.date.sunday? %>
-					<div id="week">
-						<% @task.days.first.date.wday.times do %>
-							<div class="invisible_day"></div>
-						<% end %>
-					<% end %>
-
-					<% @task.days.each do |day| %>
-						<% if day.date.sunday? %>
-							<div id="week">
-						<% end %>
-
-						<%= div_day(day, @task) %>
-
-						<% if day.date.saturday? || (day == @task.days.last) %>
-							</div>
-						<% end %>
-					<% end %>
-				</div>
-			</div>
-		</div>
-
-	<%= render partial: 'shared/content_menu_links', layout: 'shared/content_menu' %>
-
-	<div id="active_days_area_chart" style="display: none"><%= @active_days_area_chart_overall.to_json %></div>
-	<div id="hours_vaxis" style="display: none"><%= hours_vaxis(@task).to_json %></div>
-	<div id="area_chart_overall"></div>
-
-	<div id="task_progress_pie_chart" style="display: none"><%= @task_progress.to_json %></div><div id="pie_chart_task_progress"></div>
-
-	<div id="time_details_pie_chart" style="display: none"><%= @time_details.to_json %></div>
-	<div id="slices_colors" style="display: none"><%= slices_colors(markers_array(@active_days), @task.max_work_time).to_json %></div>
-	<div id="pie_chart_time_details"></div>
-		
-</div>
+<%= render partial: 'charts', locals: {part_days: @active_days, part_active_days: @active_days, remaining_time: @task.days.all} %>

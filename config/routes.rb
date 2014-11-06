@@ -7,13 +7,11 @@ Rails.application.routes.draw do
   resources :tasks do
     member do
       get 'overall_stats'
-      get 'monthly_stats'
-      get 'weekly_stats'
+      get 'month_stats'
+      get 'week_stats'
     end
     resources :days
   end
-
-  # resources :days
 
   root 'sessions#new',    as: 'login'
   match '/logout',        to: 'sessions#destroy',     via: 'delete'
