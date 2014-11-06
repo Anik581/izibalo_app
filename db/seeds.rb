@@ -35,7 +35,7 @@ end
 def anik_user
 		User.create!(name: "anik",
 								 email: "aaanik@o2.pl",
-								 pasword: "example581",
+								 password: "example581",
 								 password_confirmation: "example581")
 end
 
