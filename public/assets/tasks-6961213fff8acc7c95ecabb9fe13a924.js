@@ -37,16 +37,15 @@ jQuery(function(){
 	})
 });
 
-//.............................................................overall_stats
+//.............................................................stats(overall,month,week)
 
 function AreaChartOverall() {
   var array = JSON.parse($('#active_days_area_chart').text())
   var hours_vaxis = JSON.parse($('#hours_vaxis').text())
-  var data = google.visualization.arrayToDataTable(
-    array
-  );
+  var title = JSON.parse($('#area_chart_title').text())
+  var data = google.visualization.arrayToDataTable(array);
   var options = {
-    title: 'Activity history',
+    title: title,
     titleTextStyle: {color: '#B2B2B2'},
 	  hAxis: {textStyle: {color: '#B2B2B2'}},
     vAxis: {textStyle: {color: '#B2B2B2'},
@@ -63,13 +62,7 @@ function AreaChartOverall() {
 
 function PieChartProgress() {
 	var array = JSON.parse($('#task_progress_pie_chart').text())
-  var data = google.visualization.arrayToDataTable(
-    // [['Task', 'Hours per Day'],
-    // ['Work',     11],
-    // ['Eat',      30]]
-    array
-    // [["Time","Days"],["Activity time","118"],["Remaining time","248"]]
-  );
+  var data = google.visualization.arrayToDataTable(array);
   var options = {
     title: 'Time of whole task',
     titleTextStyle: {color: '#B2B2B2'},
@@ -77,10 +70,8 @@ function PieChartProgress() {
     legend: {textStyle: {color: '#B2B2B2'}},
     pieSliceBorderColor: '#B2B2B2',
     slices: {0: {color: '#008A00'}, 1: {color: '#43464B'}},
-    // chartArea: {hight: 300, width: 800},
     chartArea: {top: 70},
     height: 350,
-    // width: 800,
   };
   var chart = new google.visualization.PieChart(document.getElementById('pie_chart_task_progress'));
   chart.draw(data, options);
@@ -89,9 +80,7 @@ function PieChartProgress() {
 function PieChartTimeDetails() {
 	var array = JSON.parse($('#time_details_pie_chart').text())
 	var slices_colors = JSON.parse($('#slices_colors').text())
-  var data = google.visualization.arrayToDataTable(
-    array
-  );
+  var data = google.visualization.arrayToDataTable(array);
   var options = {
     title: 'Activity time in details',
     titleTextStyle: {color: '#B2B2B2'},
@@ -99,14 +88,14 @@ function PieChartTimeDetails() {
     legend: {textStyle: {color: '#B2B2B2'}},
     pieSliceBorderColor: '#B2B2B2',
     slices: slices_colors,
-    // chartArea: {hight: 300, width: 800},
     chartArea: {top: 70},
     height: 350,
-    // width: 800,
   };
   var chart = new google.visualization.PieChart(document.getElementById('pie_chart_time_details'));
   chart.draw(data, options);
 }
+
+google.load('visualization', '1', {packages:["corechart"], callback: init_overall_stats});
 
 function init_overall_stats() {
   AreaChartOverall();
@@ -122,101 +111,3 @@ $(window).resize(function(){
 
 $(document).ready(init_overall_stats);
 $(document).on('page:load', init_overall_stats);
-
-
-google.load('visualization', '1', {packages:["corechart"], callback: init_overall_stats});
-
-
-//.............................................................month_stats
-
-
-
-//.............................................................week_stats
-
-
-
-// function drawChart() {
-//   var data = new google.visualization.DataTable();
-//   data.addColumn('string', 'Year');
-//   data.addColumn('number', 'Value');
-//   data.addColumn('number', 'Value2');
-//   data.addRows([
-//     ['2009', 25, 18],
-//     ['2010', 26, 22],
-//     ['2011', 39, 30],
-//     ['2012', 42, 35],
-//     ['2013', 30, 27],
-//   ]);
-  
-//   var options = {
-//     seriesType: "bars",
-//     series: {1: {type: "line"}},
-//     colors:['orange','red']
-//   };
-  
-//   var chart = new google.visualization.ComboChart(document.getElementById('chart2'));
-//   chart.draw(data, options);
-// }
-
-
-// google.load('visualization', '1', {packages:["corechart"], callback: init});
-// google.load("visualization", "1", {packages:["corechart"]});
-// // // google.setOnLoadCallback(drawChart);
-
-// // function init () {
-// //     $(document).on('page:load', drawChart);
-// //     drawChart();
-// // }
-
-// // Math.floor((Math.random() * 10) + 1);
-
-// function drawChart() {
-//   // var number = Math.floor((Math.random() * 10) + 1);
-//   var array = JSON.parse($('#active_days_area_chart').text())
-//   var data = google.visualization.arrayToDataTable(
-//   	// gon.array
-//     // [["anik","kina"],[1,8],[2,8],[3,number],[4,8],[5,8]]
-//     array
-//   );
-
-//   var options = {
-//     title: 'Company Performance',
-//     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-//     vAxis: {minValue: 0}
-//   };
-
-//   var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-//   chart.draw(data, options);
-// }
-
-// // google.load("visualization", "1", {packages:["corechart"]});
-// // google.setOnLoadCallback(drawChart2);
-
-
-// // google.load("visualization", "1", {packages:["corechart"]});
-// // google.setOnLoadCallback(drawChart);
-
-// // function init_overall_stats () {
-// //     $(document).on('page:load', drawChart);
-// //     drawChart();
-// // }
-
-
-// function init_overall_stats() {
-//   drawChart();
-// }
-
-// $(document).ready(init_overall_stats);
-// $(document).on('page:load', init_overall_stats);
-
-
-// google.load('visualization', '1', {packages:["corechart"], callback: init_overall_stats});
-
-// [{v: 0, f: '0:00'}, {v: 60, f: '1:00'}, {v: 120, f: '2:00'},
-//     							  {v: 180, f: '3:00'}, {v: 240, f: '4:00'}, {v: 300, f: '5:00'},
-//     							  {v: 360, f: '6:00'}, {v: 420, f: '7:00'}, {v: 480, f: '8:00'},
-//     							  {v: 540, f: '9:00'}, {v: 600, f: '10:00'}, {v: 660, f: '11:00'},
-//     							  {v: 720, f: '12:00'}, {v: 780, f: '13:00'}, {v: 840, f: '14:00'},
-//     							  {v: 900, f: '15:00'}, {v: 960, f: '16:00'}, {v: 1020, f: '17:00'},
-//     							  {v: 1080, f: '18:00'}, {v: 1140, f: '19:00'}, {v: 1200, f: '20:00'}]
-

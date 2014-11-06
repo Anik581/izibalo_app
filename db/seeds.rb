@@ -28,20 +28,20 @@ def fikumiku
 	 						0,6,0,2,6,6,6,
 	 						2,8,8,0,0,6,2,
 	 						0,0,0,6,2,2,8,
-	 						0,8,8,2,8,8,2
-	 						6,8,8,8,8,8,2]
+	 						0,8,8,2,8,8,2,
+	 						6,8,8,8,8,8,2 ]
 end
 
 def anik_user
 		User.create!(name: "anik",
 								 email: "aaanik@o2.pl",
-								 pasword: "example581",
+								 password: "example581",
 								 password_confirmation: "example581")
 end
 
 def anik_task_fikumiku
 	User.find_by(name: "anik").tasks.create!(
-             name: "rails",
+             name: "fikumiku",
              max_work_time: Time.utc(2000,01,01,8,0,0)
              )
 
