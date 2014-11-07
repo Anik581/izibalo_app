@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
 	belongs_to :user
 	has_many :days, dependent: :destroy
+  default_scope { order('created_at ASC') }
 
 
 	def selected_month(params)
