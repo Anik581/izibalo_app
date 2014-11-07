@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby File.readlines(".ruby-version").first.strip
 
 gem 'rails', '4.1.0'
 gem 'turbolinks', '2.2.2'
