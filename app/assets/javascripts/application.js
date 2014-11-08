@@ -12,13 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap
 //= require turbolinks
 //= require jquery.turbolinks
-//= require bootstrap
 //= require jquery.nicescroll
 //= require jsapi
 //= require chartkick
 //= require_tree .
-
-

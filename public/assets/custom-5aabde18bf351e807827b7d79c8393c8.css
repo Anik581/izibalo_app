@@ -1,0 +1,358 @@
+/* line 3, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+/* line 8, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+body {
+  background: #2e3137;
+  font-family: sans-serif;
+  margin-bottom: 150px;
+  overflow-y: scroll;
+}
+
+/* line 15, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  text-align: center;
+}
+
+/* line 20, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+select {
+  color: #000;
+}
+
+/* line 24, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+input[type='range'] {
+  -webkit-appearance: none;
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px #333;
+  background-color: #999;
+  height: 14px;
+  vertical-align: middle;
+  overflow: hidden;
+}
+/* line 32, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+input[type='range']::-moz-range-track {
+  -moz-appearance: none;
+  border-radius: 5px;
+  background-color: #999;
+  height: 14px;
+  border: none;
+}
+/* line 39, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  border-radius: 3px;
+  background-color: #FFF;
+  border: none;
+  height: 10px;
+  width: 20px;
+}
+/* line 47, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+input[type='range']::-moz-range-thumb {
+  -moz-appearance: none;
+  border-radius: 3px;
+  background-color: #FFF;
+  border: none;
+  height: 10px;
+  width: 20px;
+}
+
+/* line 57, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+pre {
+  margin: 0 auto 10px;
+  width: 35%;
+}
+
+/* line 62, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+#logo {
+  float: left;
+  font-size: 3.2em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 0 0 18px;
+  color: #3a963a;
+}
+/* line 70, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+#logo:hover {
+  color: #49a549;
+  text-shadow: 0px 0px 2px #0bad00;
+}
+
+/* line 76, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.navbar-toggle {
+  margin-top: 15px;
+}
+
+/* line 80, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.nav {
+  margin: 20px 0 0 0;
+}
+
+/* line 84, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.nav_li > a {
+  padding: 12px !important;
+}
+
+/* line 88, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.navbar-inverse {
+  background-color: #111;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 18px;
+}
+
+/* line 94, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.footer-style {
+  bottom: 0;
+  position: absolute;
+  height: 150;
+  width: 100%;
+  background-color: #111;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* line 105, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.btn-nav {
+  background: #333;
+  border: 1px solid rgba(20, 20, 20, 0.5);
+}
+
+/* line 110, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 115, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* line 120, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.navbar-default .navbar-nav > li > a {
+  color: #777777;
+}
+
+/* line 123, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+/* line 128, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+/* line 131, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: transparent;
+}
+
+/* line 135, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.navbar-default .navbar-toggle {
+  border-color: #888888;
+}
+
+/* line 139, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #666;
+}
+
+/* line 143, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.navbar-collapse {
+  box-shadow: none;
+}
+
+/* line 147, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.dropdown-menu {
+  background-color: #ffffff !important;
+}
+
+/* line 151, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+tr {
+  font-size: 1.5em;
+  color: white;
+}
+
+/* line 156, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+tr:hover td {
+  background-color: #3e3f44;
+}
+
+/* line 163, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+#login {
+  height: 100%;
+  width: 10%;
+  margin: 10px auto;
+  border-radius: 10px;
+  background: whitesmoke;
+  text-align: center;
+}
+
+/* line 172, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.center {
+  margin: 15px auto;
+  text-align: center;
+}
+
+/* line 177, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.top_buffer {
+  margin-top: 20px;
+}
+
+/* line 179, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.left_buffer {
+  margin-left: 125px;
+}
+
+/* line 181, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+#container {
+  margin: 0 auto;
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #fff;
+}
+
+/* line 188, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.form {
+  margin: 0 auto !important;
+  padding: 10px;
+  width: 30%;
+  color: white;
+}
+
+/* line 195, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.frame_of_calendar {
+  height: 270px;
+}
+
+/* line 199, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+#visible_calendar {
+  height: 270px;
+  padding-left: 0px;
+  margin-left: 28px;
+  margin-right: 28px;
+}
+
+/* line 206, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+#hidden_calendar {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+/* line 211, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+#week {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0 0 0px;
+}
+
+/* line 217, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.day {
+  height: 28px;
+  width: 28px;
+  margin-top: 4px;
+  background-color: white;
+}
+
+/* line 225, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.editable_day:hover {
+  box-shadow: inset 0px 0px 30px 0px rgba(50, 50, 50, 0.3);
+}
+
+/* line 232, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.target {
+  height: 28px;
+  width: 28px;
+  margin: 4px 0;
+  background-color: #d9534f;
+  cursor: pointer;
+}
+
+/* line 240, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.invisible_day {
+  height: 28px;
+  width: 28px;
+  margin: 4px 0;
+  background: transparent;
+}
+
+/* line 247, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.nicescroll-rails {
+  border-radius: 5px;
+  margin: 0;
+}
+
+/* line 253, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+#month {
+  height: 28px;
+  background: transparent;
+  margin: 0 0 0 0px;
+}
+
+/* line 259, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.month_name {
+  float: left;
+  width: 28px;
+  margin-right: 4px;
+  font-size: 1.3em;
+  color: white;
+}
+
+/* line 267, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.day_name {
+  position: absolute;
+  height: 252px;
+  width: 28px;
+  padding: 28px 0 0;
+  z-index: 999;
+  font-size: 1.3em;
+  color: white;
+  background: #2e3137;
+}
+/* line 276, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.day_name p {
+  height: 28px;
+  margin: 36px 0 0;
+  text-align: center;
+}
+
+/* line 283, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.calendar_frame {
+  position: relative;
+  height: 270px;
+}
+
+/* line 289, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.table_tasks tr {
+  cursor: pointer;
+}
+/* line 291, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.table_tasks tr td {
+  font-size: 0.7em;
+  vertical-align: middle !important;
+}
+/* line 295, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.table_tasks tr .task_name {
+  font-size: 1em;
+}
+
+/* line 301, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 310, /home/anik/RoR/protoplanets/izibalo/app/assets/stylesheets/custom.css.scss */
+text[text-anchor="middle"] {
+  fill: #B2B2B2;
+}
