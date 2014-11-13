@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
 	def show
     @tasks = current_user.tasks.all
+    @all_days = all_days(@tasks)
+    @all_active_days = all_days(@tasks, active: true)
 	end
 
   def create

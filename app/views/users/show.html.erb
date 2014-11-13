@@ -1,64 +1,22 @@
 <% title(current_user.name.capitalize) %>
-	
 
-	<div>
-		<h1><%= current_user.name %></h1>		
-		<h2><%= current_user.tasks.count %></h2>
-			<% @tasks.each do |task| %>
-		<h2><%=  task.name %></h2>
-			<% end %>
+<div class="row">
+	<div class="col-xs-12 col-sm-6">
+		<h2><%= "#{current_user.name.capitalize} - #{current_user.email.downcase}" %></h2>
+		<h4 class="top_buffer">Quantity of tasks - <%= @tasks.count %></h4>
+		<h4>Open tasks - <%= open_closed_tasks(@tasks, open: true) %></h4>
+		<h4>Cosed tasks - <%= open_closed_tasks(@tasks, closed: true) %></h4>
+		<h4 class="top_buffer">All work time - <%= all_work_time(@all_active_days) %></h4>
+		<h4>Average daily work time - <%=  average_time(@all_active_days) %></h4>
+		<h4 class="top_buffer">All active days - <%= @all_active_days.count %></h4>
+		<h4>All days - <%= @all_days.count %></h4>
+		<%= render 'shared/content_menu.html' %>
 	</div>
 
-
-<div>
-
-	<div class="calendar_frame">
-		<div class="day_name"><p>M</p><p>W</p><p>F</p></div>
-		<div id="visible_calendar">
-			
-			<div id="hidden_calendar">
-
-				<div id="month">
-					<% margin_month_name = 0 %>
-					<% current_week = 0 %>
-					<% current_user.tasks.last.days.each do |day|  %>
-						<% if day.date.saturday? && (day.date.saturday? != (day.date.strftime("%d") == "10")) && (day.date.saturday? != (day.date.strftime("%d") == "16")) && (current_week != day.date.cweek) %>
-							<% margin_month_name += 32 %>
-						<% end %>
-						<% if day.date.strftime("%d") == "10" && 8 < (current_user.tasks.last.days.last.date - day.date) %>
-							<% current_week = day.date.cweek %>
-							<div class="month_name" style="margin-left: <%= margin_month_name %>px" >
-								<%= day.date.strftime("%b") %>
-								<% margin_month_name = 0 %>
-							</div>
-						<% end %>
-					<% end %>
-				</div>
-
-				<% if !current_user.tasks.last.days.first.date.sunday? %>
-				<div id="week">
-					<% current_user.tasks.last.days.first.date.wday.times do %>
-						<div class="invisible_day"></div>
-					<% end %>
-				<% end %>
-
-				<% current_user.tasks.last.days.each do |day| %>
-					<% if day.date.sunday? %>
-				<div id="week">
-					<% end %>
-
-					<div class="day<%= " target" if (day.date.strftime("%d-%m-%Y") == "04-09-2014") %>" >
-						<%= day.date.strftime("%d") %>
-					</div>
-
-				<% if day.date.saturday? || (day == current_user.tasks.last.days.last) %>
-				</div>
-				<% end %>
-			<% end %>
-			</div>
-		</div>
+	<% if @tasks.any? %>
+	<div class="col-xs-12 col-sm-6">
+		<div id="user_progress_pie_chart" style="display: none"><%= pie_chart_task_progress(@all_active_days, @all_days).to_json %></div>
+		<div id="pie_chart_user_progress"></div>
 	</div>
-
-	<%= render 'shared/content_menu.html' %>
-
+	<% end %>
 </div>
