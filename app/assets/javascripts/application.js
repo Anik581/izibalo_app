@@ -17,5 +17,6 @@
 //= require jquery.turbolinks
 //= require jquery.nicescroll
 //= require jsapi
+//= require jquery.stopwatch
 //= require chartkick
 //= require_tree .

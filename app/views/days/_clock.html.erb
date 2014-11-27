@@ -1,0 +1,26 @@
+<div class="form-group form center">
+	<div id="reset" class="btn btn-danger form_button">Reset</div>
+</div>
+
+<div class="form-group form center">
+	<div id="set" class="btn btn-primary form_button">Set time</div>
+
+	<div class="time_set_buttons form_button noselect">
+		<div id="hours_more" class="plus glyphicon glyphicon-chevron-up" style="display: none;"></div>
+		<div id="minutes_more" class="plus glyphicon glyphicon-chevron-up" style="display: none;"></div>
+		<div id="seconds_more" class="plus glyphicon glyphicon-chevron-up" style="display: none;"></div>
+	</div>
+
+	<div id="clock">00:00:00</div>
+	<div id="timer" style="display: none"></div>
+	<div id="task_max_work_time" style="display: none"><%= @task.max_work_time.strftime('%H-%M') %></div>
+	
+
+	<div class="time_set_buttons form_button noselect" style="margin-bottom: 5px;">
+		<div id="hours_less" class="minus glyphicon glyphicon-chevron-down" style="display: none;"></div>
+		<div id="minutes_less" class="minus glyphicon glyphicon-chevron-down" style="display: none;"></div>
+		<div id="seconds_less" class="minus glyphicon glyphicon-chevron-down" style="display: none;"></div>
+	</div>
+
+  <div id="start_stop" class="btn btn-primary form_button">Start</div>
+</div>

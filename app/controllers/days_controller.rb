@@ -8,8 +8,15 @@ class DaysController < ApplicationController
 
 	def update
 		@day = current_user.tasks.find(params[:task_id]).days.find(params[:id])
-		@day.update_attributes(day_params)
-		redirect_to task_path(@day.task.id)
+		# if 
+		# 	redirect_to login_path
+		# else
+		if @day.update_attributes(day_params)
+			redirect_to task_path(@day.task.id)
+		else
+			redirect_to login_path
+		end
+		# end
 	end
 
 	private

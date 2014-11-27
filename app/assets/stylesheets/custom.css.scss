@@ -101,6 +101,7 @@ pre {
   position: absolute;
   height: 150;
   width: 100%;
+  margin-top: 20px;
  	background-color: #111;
  	border-top: 1px solid rgba(255, 255, 255, 0.3);
  }
@@ -195,6 +196,10 @@ tr:hover td{
 	padding: 10px;
 	width: 30%;
 	color: white;
+}
+
+.form_button {
+  width: 160px;
 }
 
 .frame_of_calendar {
@@ -316,4 +321,53 @@ text[text-anchor="middle"]{
   fill: #B2B2B2;
 }
 
+#clock {
+  width: 160px;
+  font-size: 2em;
+  color: #111111;
+  background-color: #eeeeee;
+  text-align: center;
+  margin: 0 auto;
+  border-bottom-left-radius: 4px 4px;
+  border-bottom-right-radius: 4px 4px;
+  border-top-left-radius: 4px 4px;
+  border-top-right-radius: 4px 4px;
+  border: 3px solid #111111;
+}
 
+.plus {   
+  border-top-left-radius: 15px 15px;
+  border-top-right-radius: 15px 15px;
+  background: #999;
+  float: left;
+  font-size: 20px;
+  width: 40px;
+  margin: 19px 0 0 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.plus:hover {
+      background: #777;
+}
+
+.minus {
+  border-bottom-left-radius: 15px 15px;
+  border-bottom-right-radius: 15px 15px;
+  background: #999;
+  float: left;
+  font-size: 20px;
+  width: 40px;
+  margin-left: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.minus:hover {
+  background: #777;
+}
+
+.time_set_buttons {
+  margin: 0 auto;
+  height: 40px;
+}
