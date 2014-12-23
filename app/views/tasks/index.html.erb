@@ -9,10 +9,13 @@
 	<% end %>
 </table>
 
-<%= timeline tasks_timeline(@tasks), 
-		library: {backgroundColor: "#43464B",
-							enableInteractivity: false,
-							timeline: { rowLabelStyle: {color: '#fff', fontSize: '15'},
-							singleColor: '#3a963a'}} %>
+<div style="height:<%= tasks_timeline_frame_height %>px">
+	<%= timeline tasks_timeline(@tasks), 
+			library: {backgroundColor: "#43464B",
+								enableInteractivity: false,
+								height: tasks_timeline_frame_height,
+								timeline: { rowLabelStyle: {color: '#fff', fontSize: '15'},
+								singleColor: '#3a963a'}} %>
+</div>
 
-<%= render 'shared/content_menu' %>
+

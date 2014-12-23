@@ -24,6 +24,10 @@ module TasksHelper
 		array
 	end
 
+	def tasks_timeline_frame_height
+		@tasks.count * 41 + 65
+	end
+
 	def hours_vaxis(task)
 		array = [{v: 0, f: '0:00'}, {v: 60, f: '1:00'}, {v: 120, f: '2:00'},
 						 {v: 180, f: '3:00'}, {v: 240, f: '4:00'}, {v: 300, f: '5:00'},
