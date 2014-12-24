@@ -46,7 +46,8 @@ class TasksController < ApplicationController
 	end
 
 	def destroy
-
+		current_user.tasks.find(params[:id]).destroy
+		redirect_to tasks_path
 	end
 
 	private

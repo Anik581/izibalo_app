@@ -5,6 +5,7 @@
 		<tr onclick=location.href='<%= task_path(task.id) %>'>
 			<td class="task_name"><%= task.name.capitalize %></td>
 			<td><%= "#{task.days.first.date.strftime("%d-%m-%Y")} - #{task.days.last.date.strftime("%d-%m-%Y")}" %></td>
+			<td><%= link_to "delete", task_path(task.id), method: :delete, class: "btn btn-sm btn-danger pull-right" %></td>
 		</tr>
 	<% end %>
 </table>
