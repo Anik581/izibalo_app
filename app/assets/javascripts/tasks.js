@@ -62,9 +62,10 @@ function AreaChartOverall() {
 
 function PieChartProgress() {
 	var array = JSON.parse($('#task_progress_pie_chart').text())
+  var title = JSON.parse($('#pie_chart_task_title').text())
   var data = google.visualization.arrayToDataTable(array);
   var options = {
-    title: 'Time of whole task',
+    title: title,
     titleTextStyle: {color: '#B2B2B2'},
     backgroundColor: '#2e3137',
     legend: {textStyle: {color: '#B2B2B2'}},

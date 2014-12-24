@@ -6,6 +6,7 @@
 <div class="row">
 	<div class="col-xs-12 col-sm-6">
 		<div id="task_progress_pie_chart" style="display: none"><%= pie_chart_task_progress(part_active_days, remaining_time).to_json %></div>
+		<div id="pie_chart_task_title" style="display: none"><%= pie_chart_task_title(@month).to_json %></div>
 		<div id="pie_chart_task_progress"></div>
 	</div>
 

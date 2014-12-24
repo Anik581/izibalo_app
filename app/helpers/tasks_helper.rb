@@ -66,6 +66,10 @@ module TasksHelper
 		array.push(['Activity time',(activity_time)],['Remaining time',(task.count - activity_time)])
 	end
 
+	def pie_chart_task_title(month)
+		month.nil? ? "Time of whole task" : "Time of task in #{month.first.date.strftime('%B')}"
+	end
+
 	def slices_colors(markers_array, max_work_time)
 		slices_colors = {}
 		def select_index(wt, mwt)
