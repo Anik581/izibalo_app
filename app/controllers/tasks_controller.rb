@@ -30,10 +30,6 @@ class TasksController < ApplicationController
 		end
 	end
 
-	def week_stats
-
-	end
-
 	def create
 	  if current_user.tasks.create(task_params)
 	  	(current_user.tasks.last.created_at.to_date..current_user.tasks.last.timeout).each do |day|
