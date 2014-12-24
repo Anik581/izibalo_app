@@ -56,6 +56,10 @@ module TasksHelper
 		array
 	end
 
+	def area_chart_title(month)
+		month.nil? ? "Activity history" : "Activity history in #{month.first.date.strftime('%B')}"
+	end
+
 	def pie_chart_task_progress(active_days, task)
 		array = [['Time name', 'Time']]
 		activity_time = (task.first.date > Time.now.to_date) ? 0 : active_days.count

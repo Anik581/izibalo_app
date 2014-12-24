@@ -1,7 +1,7 @@
 	<div id="active_days_area_chart" style="display: none"><%= area_chart(part_days).to_json %></div>
-	<div id="area_chart_title" style="display: none"><%= "Activity history in #{part_days.first.date.strftime('%B')}".to_json %></div>
+	<div id="area_chart_title" style="display: none"><%= area_chart_title(@month).to_json %></div>
 	<div id="hours_vaxis" style="display: none"><%= hours_vaxis(@task).to_json %></div>
-	<div id="area_chart_overall"></div>
+  <div id="area_chart_overall"></div>
 
 <div class="row">
 	<div class="col-xs-12 col-sm-6">
