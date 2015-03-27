@@ -12,21 +12,25 @@ jQuery(function(){
 
 jQuery(function(){
 	$(document).ready(function() {
-		var visible_calendar_width = $("#visible_calendar").width();
-		var hidden_calendar_width = $("#hidden_calendar").width();
-		var target_margin = (parseInt($(".day").css("margin-top")))
-		var space_on_the_right_of_trget = parseInt($(".day").css("width"));
+    var hidden_calendar = $("#hidden_calendar");
+    var visible_calendar = $("#visible_calendar");
+    var target = hidden_calendar.find(".target");
+    if ( target.length == 0 ) { target = $(hidden_calendar).find(".day").last() };
+		var visible_calendar_width = visible_calendar.width();
+		var hidden_calendar_width = hidden_calendar.width();
+		var target_margin = (parseInt($(".day").css("margin-top")));
+		var space_on_the_right_of_target = parseInt($(".day").css("width"));
   	var space_without_calendar = ($(".container").offset().left) + parseInt($(".container").css("padding-left"));
-  	var move = ($( ".target" ).offset().left + (2 * space_on_the_right_of_trget)+(2 * target_margin) - space_without_calendar) - parseInt($("#visible_calendar").css("margin-left"));
+  	var move = ($(target).offset().left + (2 * space_on_the_right_of_target)+(2 * target_margin) - space_without_calendar) - parseInt($("#visible_calendar").css("margin-left"));
  		var validate_move = 0
 		if (move - visible_calendar_width > 0) {
 		  if ((move - visible_calendar_width) < (hidden_calendar_width - visible_calendar_width)) {
 		    validate_move = move - visible_calendar_width;
 		  } else {
-		    validate_move = ((move - space_on_the_right_of_trget) - (2 * target_margin)) - visible_calendar_width;
+		    validate_move = ((move - space_on_the_right_of_target) - (2 * target_margin)) - visible_calendar_width;
 		  }
 		}
-		$('#visible_calendar').niceScroll('#hidden_calendar',{
+		$(visible_calendar).niceScroll(hidden_calendar,{
 			cursorborder: false,
 			background: "#999",
 	    cursorcolor:"white",
@@ -34,7 +38,7 @@ jQuery(function(){
 	    cursorborderradius: "5px",
 			autohidemode: false
 		}).doScrollLeft(	validate_move	 );
-	})
+	});
 });
 
 //.............................................................stats(overall,month,week)

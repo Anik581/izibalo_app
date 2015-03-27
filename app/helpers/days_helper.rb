@@ -21,7 +21,7 @@ module DaysHelper
 	end
 
 	def day_class(day, task)
-		(day.date == Time.now.to_date) || (task.days.last.date < Time.now.to_date) ? "day target" : "day"
+		(day.date == Time.now.to_date) ? "day target" : "day"
 	end
 
 	def activity_colors(index)
