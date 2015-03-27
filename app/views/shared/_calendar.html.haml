@@ -7,12 +7,4 @@
     #hidden_calendar
       #month
         - calendar_month_name(@task)
-      - weeks = [[]]
-      - @task.days.each { |d| d.date.sunday? ? weeks.push([].push(d)) : weeks.last.push(d) }
-      - weeks.each_with_index do |week, idx|
-        #week
-          - if idx == 0
-            - @task.days.first.date.wday.times do
-              .invisible_day
-          - week.each do |day|
-            = div_day(day, @task)
+      = add_days_to_calendar(@task)

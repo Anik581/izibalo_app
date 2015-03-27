@@ -16,6 +16,28 @@ module TasksHelper
 		end
 	end
 
+	def add_days_to_calendar(task)
+		weeks_template = ""
+		days = task.days.all
+		days.first.date.sunday? ? (weeks = []) : (weeks = [[]])
+    days.each { |day| day.date.sunday? ? weeks.push([day]) : weeks.last.push(day) }
+    weeks.each_with_index do |week, idx|
+	    weeks_template += content_tag :div, id: "week" do
+	    	days_template = []
+	      if idx == 0
+	        days.first.date.wday.times do
+	          days_template << content_tag(:div ,nil, class: "invisible_day")
+	        end
+	      end
+	      week.each do |day|
+	        days_template << div_day(day, task)
+	      end
+	      days_template.join.html_safe
+	    end
+	  end
+	  weeks_template.html_safe
+	end
+
 	def tasks_timeline(tasks)
 		array = []
 		@tasks.each do |task|
