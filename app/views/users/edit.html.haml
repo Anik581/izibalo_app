@@ -1,0 +1,21 @@
+- title("Edit user profile")
+.form-horizontal{:role => "form"}
+  %h1 Edit your profile
+  = form_for(current_user) do |f|
+    .form-group.form
+      = f.label :name, "New name"
+      = f.text_field :name, class: "form-control"
+    .form-group.form
+      = f.label :email, "New email"
+      = f.text_field :email, class: "form-control"
+    .form-group.form
+      = f.label :password, "New password (optional)"
+      = f.password_field :password, class: "form-control"
+    .form-group.form
+      = f.label :password_confirmation, "New password confirmation (optional)"
+      = f.password_field :password_confirmation, class: "form-control"
+    .form-group.form
+      = label_tag :current_password, "Current password"
+      = password_field_tag :current_password, params[:old_password], class: "form-control"
+    .form-group.form.center
+      = f.submit "User update", class: "btn btn-success"

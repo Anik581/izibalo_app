@@ -1,0 +1,12 @@
+- title("Login")
+.form-horizontal{:role => "form"}
+  %h1 Welcome to Izlibalo
+  = form_tag sessions_path do
+    .form-group.form
+      = label_tag :email
+      = text_field_tag :email, nil, class: "form-control"
+    .form-group.form
+      = label_tag :password
+      = password_field_tag :password, nil, class: "form-control"
+    .form-group.form.center
+      = submit_tag "Login", class: "btn btn-success"

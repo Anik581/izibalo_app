@@ -1,0 +1,23 @@
+%body
+  %header.navbar.navbar-inverse.navbar-static-top{:role => "banner"}
+    .container
+      .navbar-header
+        %button.navbar-toggle{"data-target" => ".navHeaderCollapse", "data-toggle" => "collapse"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to "izibalo", login_path, id: "logo"
+      %nav.collapse.navbar-collapse.navHeaderCollapse
+        %ul.nav.navbar-nav.navbar-right
+          - if logged?
+            %li.nav_li= link_to "log out", logout_path, method: :delete
+            %li.nav_li= link_to "my stats", tasks_path
+            %li.nav_li= link_to "create task", new_task_path
+            %li.nav_li= link_to "edit profile", edit_user_path(current_user)
+            %li.nav_li= link_to "delete account", user_path(current_user), method: :delete
+          - else
+            - if content_for(:title).include?("Create")
+              %li.nav_li= link_to "Login", login_path
+            - else
+              %li.nav_li= link_to "Create account", new_user_path

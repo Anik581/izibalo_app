@@ -1,0 +1,23 @@
+- title(current_user.name.capitalize)
+.row
+  .col-xs-12.col-sm-6
+    %h2= "#{current_user.name.capitalize} - #{current_user.email.downcase}"
+    %h4.top_buffer
+      Quantity of tasks - #{@tasks.count}
+    %h4
+      Open tasks - #{open_closed_tasks(@tasks, open: true)}
+    %h4
+      Cosed tasks - #{open_closed_tasks(@tasks, closed: true)}
+    %h4.top_buffer
+      All work time - #{all_work_time(@all_active_days)}
+    %h4
+      Average daily work time - #{average_time(@all_active_days)}
+    %h4.top_buffer
+      All active days - #{@all_active_days.count}
+    %h4
+      All days - #{@all_days.count}
+    = render 'shared/content_menu.html'
+  - if @tasks.any?
+    .col-xs-12.col-sm-6
+      #user_progress_pie_chart{:style => "display: none"}= pie_chart_task_progress(@all_active_days, @all_days).to_json
+      #pie_chart_user_progress

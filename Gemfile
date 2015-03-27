@@ -16,7 +16,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 gem 'nicescroll-rails', '~> 3.5.4.1'
 gem 'chartkick', '1.3.2'
-
+gem 'haml-rails', '~> 0.9.0'
 
 
 group :development, :test do

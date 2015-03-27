@@ -1,0 +1,15 @@
+- title("Tasks")
+%table.table.table-hover.table_tasks.noselect
+  - @tasks.each do |task|
+    %tr{:onclick => "location.href='<haml_loud"}
+      task_path(task.id) '&gt;
+      %td.task_name= task.name.capitalize
+      %td= "#{task.days.first.date.strftime("%d-%m-%Y")} - #{task.days.last.date.strftime("%d-%m-%Y")}"
+      %td= link_to "delete", task_path(task.id), method: :delete, class: "btn btn-sm btn-danger pull-right"
+%div{:style => "height:#{tasks_timeline_frame_height}px"}
+  = timeline tasks_timeline(@tasks),                            |
+    library: {backgroundColor: "#43464B",                       |
+    enableInteractivity: false,                                 |
+    height: tasks_timeline_frame_height,                        |
+    timeline: { rowLabelStyle: {color: '#fff', fontSize: '15'}, |
+    singleColor: '#3a963a'}}                                    |

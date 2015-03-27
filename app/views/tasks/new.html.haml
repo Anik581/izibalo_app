@@ -1,0 +1,15 @@
+- title("Create task")
+.form-horizontal{:role => "form"}
+  %h1 Create your task
+  = form_for(@task) do |f|
+    .form-group.form
+      = f.label :name, "Task name"
+      = f.text_field :name, class: "form-control"
+    .form-group.form
+      = f.label :timeout
+      = f.date_select :timeout, {default: 1.years.from_now, start_year: Time.now.year}
+    .form-group.form
+      = f.label :max_work_time, "Max hours for day - 10", id: "display"
+      = f.range_field :max_work_time, in: 1..20, autocomplete: :off
+    .form-group.form.center
+      = f.submit "Create", class: "btn btn-success"

@@ -1,0 +1,4 @@
+- title("Task - #{@task.name.capitalize}")
+%h2= "#{@task.name.capitalize}"
+= render 'shared/calendar'
+= render partial: 'shared/content_menu_links', layout: 'shared/content_menu'

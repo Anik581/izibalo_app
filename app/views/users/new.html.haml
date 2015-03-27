@@ -1,0 +1,18 @@
+- title("Create user profile")
+.form-horizontal{:role => "form"}
+  %h1 Create your profile
+  = form_for(@user) do |f|
+    .form-group.form
+      = f.label :name
+      = f.text_field :name, class: "form-control"
+    .form-group.form
+      = f.label :email
+      = f.text_field :email, class: "form-control"
+    .form-group.form
+      = f.label :password
+      = f.password_field :password, class: "form-control"
+    .form-group.form
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, class: "form-control"
+    .form-group.form.center
+      = f.submit "Create", class: "btn btn-success"

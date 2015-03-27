@@ -1,0 +1,17 @@
+.navbar.navbar-default
+  %button.navbar-toggle{"data-target" => ".navContentCollapse", "data-toggle" => "collapse"}
+    %span.sr-only Toggle navigation
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  .collapse.navbar-collapse.navContentCollapse
+    %ul.nav.navbar-nav.navbar-right
+      %li.nav_li
+        .btn-group.navbar-btn
+          = link_to "Tasks", tasks_path, class: "btn btn-danger"
+          %button.btn.btn-danger.dropdown-toggle{"data-toggle" => "dropdown"}
+            %span.caret
+          %ul.dropdown-menu
+            - @tasks.each do |task|
+              %li= link_to task.name, task_path(task.id)
+    = yield

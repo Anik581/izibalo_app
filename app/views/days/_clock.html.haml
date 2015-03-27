@@ -1,0 +1,16 @@
+.form-group.form.center
+  #reset.btn.btn-danger.form_button Reset
+.form-group.form.center
+  #set.btn.btn-primary.form_button Set time
+  .time_set_buttons.form_button.noselect
+    #hours_more.plus.glyphicon.glyphicon-chevron-up{:style => "display: none;"}
+    #minutes_more.plus.glyphicon.glyphicon-chevron-up{:style => "display: none;"}
+    #seconds_more.plus.glyphicon.glyphicon-chevron-up{:style => "display: none;"}
+  #clock 00:00:00
+  #timer{:style => "display: none"}
+  #task_max_work_time{:style => "display: none"}= @task.max_work_time.strftime('%H-%M')
+  .time_set_buttons.form_button.noselect{:style => "margin-bottom: 5px;"}
+    #hours_less.minus.glyphicon.glyphicon-chevron-down{:style => "display: none;"}
+    #minutes_less.minus.glyphicon.glyphicon-chevron-down{:style => "display: none;"}
+    #seconds_less.minus.glyphicon.glyphicon-chevron-down{:style => "display: none;"}
+  #start_stop.btn.btn-primary.form_button Start
