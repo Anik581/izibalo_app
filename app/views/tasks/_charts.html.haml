@@ -1,13 +1,6 @@
-#active_days_area_chart{:style => "display: none"}= area_chart(part_days).to_json
-#area_chart_title{:style => "display: none"}= area_chart_title(@month).to_json
-#hours_vaxis{:style => "display: none"}= hours_vaxis(@task).to_json
-#area_chart_overall
+#area_chart_overall{ data: { active_days: area_chart(part_days), area_chart_title: area_chart_title(@month), hours_vaxis: hours_vaxis(@task).to_json } }
 .row
   .col-xs-12.col-sm-6
-    #task_progress_pie_chart{:style => "display: none"}= pie_chart_task_progress(part_active_days, remaining_time).to_json
-    #pie_chart_task_title{:style => "display: none"}= pie_chart_task_title(@month).to_json
-    #pie_chart_task_progress
+    #pie_chart_task_progress{ data: { task_progress: pie_chart_task_progress(part_active_days, remaining_time), task_title: pie_chart_task_title(@month)} }
   .col-xs-12.col-sm-6
-    #time_details_pie_chart{:style => "display: none"}= pie_chart_time_details(part_active_days).to_json
-    #slices_colors{:style => "display: none"}= slices_colors(markers_array(part_days), @task.max_work_time).to_json
-    #pie_chart_time_details
+    #pie_chart_time_details{ data: { time_details: pie_chart_time_details(part_active_days), slices_colors: slices_colors(markers_array(part_days), @task.max_work_time).to_json } }

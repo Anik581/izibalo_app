@@ -19,5 +19,4 @@
     = render 'shared/content_menu.html'
   - if @tasks.any?
     .col-xs-12.col-sm-6
-      #user_progress_pie_chart{:style => "display: none"}= pie_chart_task_progress(@all_active_days, @all_days).to_json
-      #pie_chart_user_progress
+      #pie_chart_user_progress{ data: { tasks_progress: pie_chart_task_progress(@all_active_days, @all_days) } }
