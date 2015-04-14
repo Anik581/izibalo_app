@@ -17,6 +17,7 @@ class TasksController < ApplicationController
 		@task = current_user.tasks.find(params[:id])
 		@tasks = current_user.tasks.all
 		@active_days = @task.active_days(@task.days.all)
+		render partial: "charts", locals: { part_days: @active_days, part_active_days: @active_days, remaining_time: @task.days.all }
 	end
 
 	def month_stats
@@ -24,10 +25,7 @@ class TasksController < ApplicationController
 		@tasks = current_user.tasks.all
   	@month = params[:month_date].nil? ? @task.current_month : @task.selected_month(params[:month_date])
   	@active_days_of_month = @task.active_days(@month)
-  	respond_to do |format|
-			format.html
-			format.js
-		end
+    render partial: "charts", locals: { part_days: @month, part_active_days: @active_days_of_month, remaining_time: @month }
 	end
 
 	def create

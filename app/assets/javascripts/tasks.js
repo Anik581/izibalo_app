@@ -7,18 +7,8 @@ $(function() {
       if ( $("#hidden_calendar").length > 0 ) {
         CalendarAutoScroll();
       };
-      if ( $("#area_chart_overall").length > 0 ) {
-        InitAreaChartOverall();
-        $(window).resize(function(){ InitAreaChartOverall() });
-      };
-      if ( $("#pie_chart_task_progress").length > 0 ) {
-        InitPieChartProgress();
-        $(window).resize(function(){ InitPieChartProgress() });
-      };
-      if ( $("#pie_chart_time_details").length > 0 ) {
-        InitPieChartTimeDetails();
-        $(window).resize(function(){ InitPieChartTimeDetails() });
-      };
+      OverallStats();
+      MonthStats();
     });
 
   };
@@ -69,6 +59,7 @@ $(function() {
     var title = area_chart_overall.data("area-chart-title");
     var hours_vaxis = area_chart_overall.data("hours-vaxis");
     var data = google.visualization.arrayToDataTable(array);
+    var status = "done"
     var options = {
       title: title,
       titleTextStyle: {color: '#B2B2B2'},
@@ -83,6 +74,12 @@ $(function() {
     };
     var chart = new google.visualization.AreaChart( area_chart_overall[0] );
     chart.draw(data, options);
+    $(window).resize(function(){
+      if ( status == "done" ) {
+        status = "wait"
+        setTimeout(function(){chart.draw(data, options);status = "done";},1000);
+      };
+    });
   };
 
   InitPieChartProgress = function() {
@@ -93,6 +90,7 @@ $(function() {
     var array = $("#pie_chart_task_progress").data("task-progress");
     var title = $("#pie_chart_task_progress").data("task-title");
     var data = google.visualization.arrayToDataTable(array);
+    var status = "done"
     var options = {
       title: title,
       titleTextStyle: {color: '#B2B2B2'},
@@ -105,6 +103,12 @@ $(function() {
     };
     var chart = new google.visualization.PieChart( $("#pie_chart_task_progress")[0] );
     chart.draw(data, options);
+    $(window).resize(function(){
+      if ( status == "done" ) {
+        status = "wait"
+        setTimeout(function(){chart.draw(data, options);status = "done";},1000);
+      };
+    });
   };
 
   InitPieChartTimeDetails = function() {
@@ -115,6 +119,7 @@ $(function() {
     var array = $("#pie_chart_time_details").data("time-details");
     var slices_colors = $("#pie_chart_time_details").data("slices-colors");
     var data = google.visualization.arrayToDataTable(array);
+    var status = "done"
     var options = {
       title: 'Activity time in details',
       titleTextStyle: {color: '#B2B2B2'},
@@ -127,6 +132,36 @@ $(function() {
     };
     var chart = new google.visualization.PieChart( $("#pie_chart_time_details")[0] );
     chart.draw(data, options);
+    $(window).resize(function(){
+      if ( status == "done" ) {
+        status = "wait"
+        setTimeout(function(){chart.draw(data, options);status = "done";},1000);
+      };
+    });
+  };
+
+  OverallStats = function() {
+    $(document).on("ajax:success", "a#overall-stats", function(evt, data, status, xhr) {
+      if ( $("#charts").length == 0 ) { 
+        $(this).closest(".navbar").after( $("<div/>",{id: "charts"}) );
+      };
+      $("#charts").html(data);
+      InitAreaChartOverall();
+      InitPieChartProgress();
+      InitPieChartTimeDetails();
+    });
+  };
+
+  MonthStats = function() { 
+    $(document).on("ajax:success", "a#month-stats", function(evt, data, status, xhr) {
+      if ( $("#charts").length == 0 ) { 
+        $(this).closest(".navbar").after( $("<div/>",{id: "charts"}) );
+      };
+      $("#charts").html(data);
+      InitAreaChartOverall();
+      InitPieChartProgress();
+      InitPieChartTimeDetails();
+    });
   };
 
   InitTasks();

@@ -1,3 +1,4 @@
+#month_select_menu= render 'month_select_menu' if params[:action] == "month_stats"
 #area_chart_overall{ data: { active_days: area_chart(part_days), area_chart_title: area_chart_title(@month), hours_vaxis: hours_vaxis(@task).to_json } }
 .row
   .col-xs-12.col-sm-6
