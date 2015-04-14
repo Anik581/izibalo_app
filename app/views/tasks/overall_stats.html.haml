@@ -1,5 +1,0 @@
-- title("Overall Stats - #{@task.name.capitalize}")
-%h2= "#{@task.name.capitalize}"
-= render 'shared/calendar'
-= render partial: 'shared/content_menu_links', layout: 'shared/content_menu'
-= render partial: 'charts', locals: {part_days: @active_days, part_active_days: @active_days, remaining_time: @task.days.all}

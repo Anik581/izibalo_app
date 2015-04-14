@@ -1,6 +1,0 @@
-- title("Month Stats - #{@task.name.capitalize}")
-%h2= "#{@task.name.capitalize}"
-= render 'shared/calendar'
-= render partial: 'shared/content_menu_links', layout: 'shared/content_menu'
-#month_select_menu= render 'month_select_menu'
-#charts= render partial: 'charts', locals: {part_days: @month, part_active_days: @active_days_of_month, remaining_time: @month}

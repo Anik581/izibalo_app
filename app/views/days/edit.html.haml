@@ -4,8 +4,7 @@
 = render partial: 'shared/content_menu_links', layout: 'shared/content_menu'
 .form-horizontal{:role => "form"}
   = form_for [@task, @day] do |f|
-    .form-group.form
-      = f.hidden_field :work_time
-    = render 'clock'
-    .form-group.form.center
-      = f.submit "Save time", id: "submit" , class: "btn btn-success form_button"
+    = f.hidden_field :work_time
+    = render 'clock', f: f
+    / .form-group.form.center
+    /   = f.submit "Save time", id: "submit" , class: "btn btn-success form_button"

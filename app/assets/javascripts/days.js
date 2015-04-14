@@ -3,7 +3,9 @@ $(function() {
   InitDays = function() {
 
     $(document).ready(function() {
-      TimeCounter();
+      if ( $("#clock_panel").length > 0 ) {
+        TimeCounter();
+      };
     });
 
   };
@@ -17,7 +19,7 @@ $(function() {
     var one_hour = 3600000;
     
     max_work_time_to_milliseconds = function() {
-      var task_max_work_time = $('#task_max_work_time').text();
+      var task_max_work_time = $("#clock").data("max-work-time");
       return (parseInt(task_max_work_time.split('-')[0]) * one_hour)+(parseInt(task_max_work_time.split('-')[1]) * one_minute)
     }
     var max_work_time = max_work_time_to_milliseconds();
@@ -96,8 +98,8 @@ $(function() {
           return "btn-primary";
         }
       });
-      $(".plus").toggle();
-      $(".minus").toggle();
+      $("#hours_more, #minutes_more, #seconds_more").toggle();
+      $("#hours_less, #minutes_less, #seconds_less").toggle();
     };
     $("#set").on("click", function() {
       if ($("#start_stop").is(".btn-warning")) {
