@@ -3,9 +3,8 @@ $(function() {
   InitDays = function() {
 
     $(document).ready(function() {
-      if ( $("#clock_panel").length > 0 ) {
-        TimeCounter();
-      };
+      ClockPanel();
+      EditDay();
     });
 
   };
@@ -160,6 +159,54 @@ $(function() {
         $("#start_stop").removeClass("disabled");
       };
     });
+  };
+
+  ClockPanel = function() {
+    $(document).on("click", ".editable_day", function() {
+      var task_id = $(this).data("task-id");
+      var day_id = $(this).data("day-id");
+      window.edit_day = $(this)
+      console.log("window.edit_day - ", edit_day)
+      $.ajax( {
+        url: "/tasks/"+task_id+"/days/"+day_id+"/edit",
+        success: function(data) {
+          console.log("success")
+          if ( $("#clock_panel").length > 0) {
+            $("#clock_panel").closest(".form-horizontal").remove();
+          };
+          $(".calendar_frame").next(".navbar").after( data );
+          TimeCounter();
+        }
+      });
+    });
+
+    EditDay = function() {
+      $(document).on("ajax:success", ".edit_day", function(evt, data) {
+        edit_day.html(data);
+        if ( $("#month_select_menu").length > 0 ) {
+          var params = {}
+          params["month_date"] = $("#month_select_menu").data("month-date")
+          var button = $("a#month-stats");
+          var link = button.attr("href");
+          $.ajax( {
+            url: link,
+            data: params,
+            success: function(data) {
+              LoadCharts( button, data);
+            }
+          });
+        } else if ( $("#area_chart_overall").length > 0 ) {
+          var button = $("a#overall-stats");
+          var link = button.attr("href");
+          $.ajax( {
+            url: link,
+            success: function(data) {
+              LoadCharts( button, data);
+            }
+          }); 
+        };
+      });
+    };
   };
 
   InitDays();

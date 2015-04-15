@@ -1,9 +1,9 @@
 .row
   .col-xs-2.col-sm-1.col-xs-offset-2.col-sm-offset-4
     - unless @task.selected_month((@month.first.date - 1.month).strftime('%m-%Y')).empty?
-      = link_to '<i class="glyphicon glyphicon-chevron-left"></i>'.html_safe, month_stats_task_path(@task.id, month_date: (@month.first.date - 1.month).strftime('%m-%Y')), remote: true, id: "month-stats", class: "btn btn-sm btn-default pull-right top_buffer"
-  %h4.col-xs-4.col-sm-2.top_buffer
+      = link_to '<i class="glyphicon glyphicon-chevron-left"></i>'.html_safe, month_stats_task_path(@task.id, month_date: (@month.first.date - 1.month).strftime('%m-%Y')), remote: true, id: "month-stats", class: "btn btn-sm btn-default pull-right"
+  %h4.col-xs-4.col-sm-2.select_month_name
     = @month.first.date.strftime('%B %Y')
   .col-xs-2.col-sm-1
     - unless @task.selected_month((@month.first.date + 1.month).strftime('%m-%Y')).empty?
-      = link_to '<i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, month_stats_task_path(@task.id, month_date: (@month.first.date + 1.month).strftime('%m-%Y')), remote: true, id: "month-stats", class: "btn btn-sm btn-default top_buffer"
+      = link_to '<i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, month_stats_task_path(@task.id, month_date: (@month.first.date + 1.month).strftime('%m-%Y')), remote: true, id: "month-stats", class: "btn btn-sm btn-default"

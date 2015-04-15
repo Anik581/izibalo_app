@@ -140,27 +140,29 @@ $(function() {
     });
   };
 
+  LoadCharts = function( button, data ) {
+    if ( $("#charts").length == 0 ) {
+      if ( $("#clock_panel").length == 0 ) { 
+        $(button).closest(".navbar").after( $("<div/>",{id: "charts"}) );
+      } else {
+        $("#clock_panel").closest(".form-horizontal").after( $("<div/>",{id: "charts"}) );
+      };
+    };
+    $("#charts").html(data);
+    InitAreaChartOverall();
+    InitPieChartProgress();
+    InitPieChartTimeDetails();
+  };
+
   OverallStats = function() {
     $(document).on("ajax:success", "a#overall-stats", function(evt, data, status, xhr) {
-      if ( $("#charts").length == 0 ) { 
-        $(this).closest(".navbar").after( $("<div/>",{id: "charts"}) );
-      };
-      $("#charts").html(data);
-      InitAreaChartOverall();
-      InitPieChartProgress();
-      InitPieChartTimeDetails();
+      LoadCharts( this, data);
     });
   };
 
   MonthStats = function() { 
     $(document).on("ajax:success", "a#month-stats", function(evt, data, status, xhr) {
-      if ( $("#charts").length == 0 ) { 
-        $(this).closest(".navbar").after( $("<div/>",{id: "charts"}) );
-      };
-      $("#charts").html(data);
-      InitAreaChartOverall();
-      InitPieChartProgress();
-      InitPieChartTimeDetails();
+      LoadCharts( this, data);
     });
   };
 

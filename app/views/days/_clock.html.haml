@@ -1,17 +1,20 @@
-#clock_panel
-  #reset.btn.btn-danger.form_button Reset
-  #set.btn.btn-primary.form_button Set time
-  #clock_frame
-    .time_set_buttons.form_button.noselect
-      #hours_more.plus.glyphicon.glyphicon-chevron-up
-      #minutes_more.plus.glyphicon.glyphicon-chevron-up
-      #seconds_more.plus.glyphicon.glyphicon-chevron-up
-    #clock{ data: { max_work_time: @task.max_work_time.strftime('%H-%M') }}
-      = "00:00:00"
-    #timer
-    .time_set_buttons.form_button.noselect
-      #hours_less.minus.glyphicon.glyphicon-chevron-down
-      #minutes_less.minus.glyphicon.glyphicon-chevron-down
-      #seconds_less.minus.glyphicon.glyphicon-chevron-down
-  #start_stop.btn.btn-primary.form_button Start
-  = f.submit "Save time", id: "submit" , class: "btn btn-success form_button"
+.form-horizontal{:role => "form"}
+  = form_for [@task, @day], remote: true do |f|
+    = f.hidden_field :work_time
+    #clock_panel
+      #reset.btn.btn-danger.form_button Reset
+      #set.btn.btn-primary.form_button Set time
+      #clock_frame
+        .time_set_buttons.form_button.noselect
+          #hours_more.plus.glyphicon.glyphicon-chevron-up
+          #minutes_more.plus.glyphicon.glyphicon-chevron-up
+          #seconds_more.plus.glyphicon.glyphicon-chevron-up
+        #clock{ data: { max_work_time: @task.max_work_time.strftime('%H-%M') }}
+          = "00:00:00"
+        #timer
+        .time_set_buttons.form_button.noselect
+          #hours_less.minus.glyphicon.glyphicon-chevron-down
+          #minutes_less.minus.glyphicon.glyphicon-chevron-down
+          #seconds_less.minus.glyphicon.glyphicon-chevron-down
+      #start_stop.btn.btn-primary.form_button Start
+      = f.submit "Save time", id: "submit" , class: "btn btn-success form_button"

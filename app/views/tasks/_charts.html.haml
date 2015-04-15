@@ -1,7 +1,9 @@
-#month_select_menu= render 'month_select_menu' if params[:action] == "month_stats"
+- if params[:action] == "month_stats"
+	#month_select_menu{ data: { month_date: @month.first.date.strftime('%m-%Y') } }
+	= render 'month_select_menu'
 #area_chart_overall{ data: { active_days: area_chart(part_days), area_chart_title: area_chart_title(@month), hours_vaxis: hours_vaxis(@task).to_json } }
 .row
-  .col-xs-12.col-sm-6
-    #pie_chart_task_progress{ data: { task_progress: pie_chart_task_progress(part_active_days, remaining_time), task_title: pie_chart_task_title(@month)} }
-  .col-xs-12.col-sm-6
-    #pie_chart_time_details{ data: { time_details: pie_chart_time_details(part_active_days), slices_colors: slices_colors(markers_array(part_days), @task.max_work_time).to_json } }
+	.col-xs-12.col-sm-6
+		#pie_chart_task_progress{ data: { task_progress: pie_chart_task_progress(part_active_days, remaining_time), task_title: pie_chart_task_title(@month)} }
+	.col-xs-12.col-sm-6
+		#pie_chart_time_details{ data: { time_details: pie_chart_time_details(part_active_days), slices_colors: slices_colors(markers_array(part_days), @task.max_work_time).to_json } }

@@ -108,10 +108,10 @@ pre {
 
 //..................................................................bootstrap customize
 
- .btn-nav {
- 	background: #333;
- 	border: 1px solid rgba(20, 20, 20, 0.5);
- }
+.btn-nav {
+  background: #333;
+  border: 1px solid rgba(20, 20, 20, 0.5);
+}
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: #d9534f;
@@ -393,10 +393,10 @@ text[text-anchor="middle"]{
   }
 }
 
-
-
-
-
+.select_month_name {
+  margin-top: 6px;
+  text-align: center;
+}
 
 #charts {
   height: 550px;
