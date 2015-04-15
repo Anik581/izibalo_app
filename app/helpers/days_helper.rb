@@ -5,7 +5,7 @@ module DaysHelper
 	  	content_tag :div, class: "#{day_class(day, task)} editable_day", data: { task_id: task.id, day_id: day.id}, style: "background-color:#{day_color(day, task)}" do
 	    end
 		elsif last_thirty_days?(day)
-			content_tag :div, class: "#{day_class(day, task)} editable_day", onclick: "location.href =  '#{edit_task_day_path(task.id, day.id)}'" do
+			content_tag :div, class: "#{day_class(day, task)} editable_day", data: { task_id: task.id, day_id: day.id} do
 	    end
 	  elsif !day.work_time.nil?
 	  	content_tag :div, class: "#{day_class(day, task)}", style: "background-color:#{day_color(day, task)}" do

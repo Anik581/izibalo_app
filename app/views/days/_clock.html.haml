@@ -5,6 +5,7 @@
       #reset.btn.btn-danger.form_button Reset
       #set.btn.btn-primary.form_button Set time
       #clock_frame
+        %h4.date_to_edit= @day.date.strftime('%A %d %B')
         .time_set_buttons.form_button.noselect
           #hours_more.plus.glyphicon.glyphicon-chevron-up
           #minutes_more.plus.glyphicon.glyphicon-chevron-up

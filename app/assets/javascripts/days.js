@@ -166,11 +166,9 @@ $(function() {
       var task_id = $(this).data("task-id");
       var day_id = $(this).data("day-id");
       window.edit_day = $(this)
-      console.log("window.edit_day - ", edit_day)
       $.ajax( {
         url: "/tasks/"+task_id+"/days/"+day_id+"/edit",
         success: function(data) {
-          console.log("success")
           if ( $("#clock_panel").length > 0) {
             $("#clock_panel").closest(".form-horizontal").remove();
           };
